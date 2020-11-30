@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d57c134a6930b20c917985a8aec306c791568da8e5e82a454d1563179907ecba
+-- hash: 4c9f64696d7a322583e70aaa5f3a43cd5c72588de624d617123c608985670346
 
 name:           noughts
 version:        0.1.0.0
@@ -28,15 +28,24 @@ source-repository head
 library
   exposed-modules:
       Lib
+      Repo
+      Types
   other-modules:
       Paths_noughts
   hs-source-dirs:
       src
   build-depends:
       base >=4.7 && <5
+    , conduit
+    , monad-logger
+    , mtl
+    , persistent
+    , persistent-sqlite
+    , persistent-template
     , random >1.0
     , text
     , transformers
+    , unliftio-core
   default-language: Haskell2010
 
 executable noughts-exe
@@ -48,10 +57,17 @@ executable noughts-exe
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , conduit
+    , monad-logger
+    , mtl
     , noughts
+    , persistent
+    , persistent-sqlite
+    , persistent-template
     , random >1.0
     , text
     , transformers
+    , unliftio-core
   default-language: Haskell2010
 
 test-suite noughts-test
@@ -64,8 +80,15 @@ test-suite noughts-test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
+    , conduit
+    , monad-logger
+    , mtl
     , noughts
+    , persistent
+    , persistent-sqlite
+    , persistent-template
     , random >1.0
     , text
     , transformers
+    , unliftio-core
   default-language: Haskell2010

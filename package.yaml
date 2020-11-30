@@ -24,6 +24,13 @@ dependencies:
 - random > 1.0
 - text
 - transformers
+- mtl
+- monad-logger
+- unliftio-core
+- conduit
+- persistent
+- persistent-sqlite
+- persistent-template
 
 library:
   source-dirs: src
